@@ -1,25 +1,30 @@
 #!/bin/bash
 
-# Function to handle exit
-exit_container() {
-    # echo "Exiting the container..."
-    kill -TERM $PPID
+
+decode_file(){
+    base64 -d /etc/app/.txt.b64 > /etc/app/.txt
 }
 
-# Set trap for custom signal
-trap exit_container SIGUSR1
+encode_file(){
+    base64 /etc/app/.txt > /etc/app/.txt.b64
+    rm /etc/app/.txt
+}
 
 # Password check
-read -p "Please enter the flag of the current level: " password
+read -p "Please enter the password for next level: " password
 
-curr_level=$(sed -n '2p' ./.txt)
+decode_file
+
+curr_level=$(sed -n '2p' /etc/app/.txt)
 curr_level=$(( curr_level + 1 ))
 
 if [[ $curr_level -eq 1 && $password == "Penguin" ]]; then
-    sed -i "2s/.*/$curr_level/" ./.txt
-    echo "Flag is correct. Level updated to $curr_level."
-    echo "Moving to next level..."
-    kill -SIGUSR1 $PPID
+    sed -i "2s/.*/$curr_level/" /etc/app/.txt
+    encode_file
+    echo "Password is correct. Level updated to $(( curr_level + 1 ))."
+    echo "You may now exit by either pressing Ctrl + D or type 'exit' (without quotes)."
+    exit 0
 else
     echo "Incorrect flag! Please try again."
+    exit 1
 fi

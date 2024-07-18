@@ -3,10 +3,10 @@
 clear
 
 # To run as sudo
-if [ "$(id -u)" -ne 0 ]; then
-    echo "This script must be run as root. Please switch to the root user using 'sudo su' and then run the script."
-    exit 1
-fi
+# if [ "$(id -u)" -ne 0 ]; then
+#     echo "This script must be run as root. Please switch to the root user using 'sudo su' and then run the script."
+#     exit 1
+# fi
 
 # Determine the script's directory
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
@@ -22,11 +22,12 @@ get_Docker(){
         echo "Done."
     else
         echo "Docker already exists"
+        # Check if Docker is active using systemctl or snap
         if sudo systemctl restart docker &> /dev/null; then
-            echo "Docker restarted using systemctl."
+            echo "Docker started using systemctl."
         else
             sudo snap restart docker &> /dev/null
-            echo "Docker restarted using snap."
+            echo "Docker started using snap."
         fi
     fi
 }
@@ -49,30 +50,34 @@ get_User(){
     d[CURR_LEVEL]=0
     echo "${d[USERNAME]}" >> "$SCRIPT_DIR/bind_it/.txt"
     echo "${d[CURR_LEVEL]}" >> "$SCRIPT_DIR/bind_it/.txt"
+
+    base64 "$SCRIPT_DIR/bind_it/.txt" > "$SCRIPT_DIR/bind_it/.txt.b64"
+    rm "$SCRIPT_DIR/bind_it/.txt"
 }
 
 # Get game images
 pull_Levels(){
     echo "Patience is the key! Pulling Levels..."
-    sudo apt install shc &> /dev/null
+    # sudo apt install shc &> /dev/null
     docker pull wildwarrior44/war1 &> /dev/null
     docker pull wildwarrior44/war2 &> /dev/null
     echo "Pull Complete"
 }
 
-if [ -f "$SCRIPT_DIR/bind_it/.txt" ]; then
-    username=$(sed -n '1p' "$SCRIPT_DIR/bind_it/.txt")
-    curr_level=$(sed -n '2p' "$SCRIPT_DIR/bind_it/.txt")
-    
+if [ -f "$SCRIPT_DIR/bind_it/.txt.b64" ]; then
+    # get_Docker
+    decoded_content=$(base64 -d "$SCRIPT_DIR/bind_it/.txt.b64")
+    username=$(echo "$decoded_content" | sed -n '1p')
+    curr_level=$(echo "$decoded_content" | sed -n '2p')
 else
     get_Docker
     get_User
     pull_Levels
-    
 fi
 
 # Call start_exit.sh with parameters
-echo "Welcome to wargames Level $(( curr_level + 1 ))" 
+clear
 
+echo "Welcome to wargames Level $(( curr_level + 1 ))" 
 
 "$SCRIPT_DIR/start_exit.sh.x" "$username" "$curr_level"
