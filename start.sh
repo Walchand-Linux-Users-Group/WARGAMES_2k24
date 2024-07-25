@@ -70,9 +70,9 @@ fi
 
 
 # Ensure the main script is executable
-# if [ ! -x "./-/start.sh.x" ]; then
-#     echo "The main script ./-/start.sh.x is not executable. Adding execute permissions."
-#     chmod +x ./-/start.sh.x
-# fi
+if [ ! -x "./-/start.sh.x" ]; then
+    echo "The main script ./-/start.sh.x is not executable. Adding execute permissions."
+    chmod +x ./-/start.sh.x
+fi
 
 ./-/start.sh
