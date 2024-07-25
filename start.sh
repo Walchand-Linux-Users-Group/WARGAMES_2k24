@@ -15,9 +15,14 @@ stop_it() {
     containers=$(docker ps -a --filter "name=^/war" -q)
     if [ -n "$containers" ]; then
         docker stop $containers &> /dev/null
-        echo "Game Stopped!"
+        docker rm -f $containers &> /dev/null
+        if [ $? -eq 0 ]; then
+            echo "Game Stopped!"
+        else
+            echo "Error: Failed to stop some containers."
+        fi
     else
-        echo "Game Stopped!"
+        echo "No 'war' containers found."
     fi
 }
 
@@ -44,6 +49,25 @@ while getopts ":rs" opt; do
             ;;
     esac
 done
+
+# Check gcc
+#!/bin/bash
+
+# Check if gcc is installed
+if command -v gcc &> /dev/null; then
+    echo "gcc is installed."
+else
+    echo "gcc is not installed. Installing gcc..."
+    sudo apt update &> /dev/null
+    sudo apt install -y gcc &> /dev/null
+    if [ $? -eq 0 ]; then
+        echo "gcc was installed successfully."
+    else
+        echo "Error: gcc installation failed."
+        exit 1
+    fi
+fi
+
 
 # Ensure the main script is executable
 # if [ ! -x "./-/start.sh.x" ]; then
