@@ -75,4 +75,4 @@ fi
 #     chmod +x ./-/start.sh.x
 # fi
 
-./-/start.sh.x
+./-/start.sh
