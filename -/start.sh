@@ -96,5 +96,9 @@ fi
 clear
 
 echo "Welcome to wargames Level $(( curr_level + 1 ))" 
+if [ ! -x "$SCRIPT_DIR/start_exit.sh" ]; then
+    echo "The main script ./-/start.sh.x is not executable. Adding execute permissions."
+    chmod +x $SCRIPT_DIR/start_exit.sh
+fi
 
 "$SCRIPT_DIR/start_exit.sh" "$username" "$curr_level"
