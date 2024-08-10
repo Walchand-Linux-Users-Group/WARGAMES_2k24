@@ -66,6 +66,8 @@ pull_Levels(){
     echo "Level 2 Pulled"
     docker pull wildwarrior44/wargame_finals:warg3 &> /dev/null
     echo "Level 3 Complete"
+    docker pull wildwarrior44/wargame_finals:warg4 &> /dev/null
+    echo "Level 4 Complete"
 }
 
 if [ -f "$SCRIPT_DIR/bind_it/.txt.b64" ]; then
