@@ -2,6 +2,9 @@
 
 clear
 
+# Global variable for curr_level
+curr_level=-1
+
 # To run as sudo
 # if [ "$(id -u)" -ne 0 ]; then
 #     echo "This script must be run as root. Please switch to the root user using 'sudo su' and then run the script."
@@ -47,7 +50,7 @@ get_User(){
     touch "$SCRIPT_DIR/bind_it/.txt"
     declare -A d
     d[USERNAME]=$username
-    d[CURR_LEVEL]=-1
+    d[CURR_LEVEL]=$curr_level
     echo "${d[USERNAME]}" >> "$SCRIPT_DIR/bind_it/.txt"
     echo "${d[CURR_LEVEL]}" >> "$SCRIPT_DIR/bind_it/.txt"
 
@@ -79,6 +82,7 @@ if [ -f "$SCRIPT_DIR/bind_it/.txt.b64" ]; then
     decoded_content=$(base64 -d "$SCRIPT_DIR/bind_it/.txt.b64")
     username=$(echo "$decoded_content" | sed -n '1p')
     curr_level=$(echo "$decoded_content" | sed -n '2p')
+    echo $curr_level
 else
     get_Docker
     get_User
