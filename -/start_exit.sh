@@ -11,7 +11,7 @@ start_Level() {
     if docker ps -a --filter "name=$container_name" --format "{{.Names}}" | grep -q "$container_name"; then
         echo "Container '$container_name' already exists. Starting and attaching to it..."
         docker start "$container_name" &> /dev/null
-        docker exec -it "$container_name" /bin/bash
+        docker exec --hostname "$user" --user root -v /var/run/docker.sock:/var/run/docker.sock --mount type=bind,source="$SCRIPT_DIR/bind_it",target=/etc/app -it "$container_name" /bin/bash
     else
         docker run --hostname "$user" --user root -v /var/run/docker.sock:/var/run/docker.sock --mount type=bind,source="$SCRIPT_DIR/bind_it",target=/etc/app -it --name "$container_name" wildwarrior44/wargame_finals:warg$(( curr_l + 1 )) /bin/bash -c "cd /home/wlug && /bin/bash"
     fi
