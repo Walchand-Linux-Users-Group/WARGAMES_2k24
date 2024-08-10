@@ -12,7 +12,7 @@ reset() {
 
 # Function to stop Docker containers starting with "war"
 stop_it() {
-    containers=$(docker ps -a --filter "name=^/war" -q)
+    containers=$(docker ps -a --filter "name=^/warg" -q)
     if [ -n "$containers" ]; then
         docker stop $containers &> /dev/null
         docker rm -f $containers &> /dev/null
