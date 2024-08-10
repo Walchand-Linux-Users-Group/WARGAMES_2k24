@@ -7,9 +7,9 @@ git clone https://github.com/Vishal490404/WARGAMES.git
 ```
 
 #### Once you have cloned the repository
-```python
+```js
 cd WARGAMES
 ```
-```python
+```js
 sudo bash start.sh
 ```

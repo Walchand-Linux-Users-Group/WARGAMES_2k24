@@ -9,8 +9,8 @@ encode_file(){
     rm /etc/app/.txt
 }
 
-
-passwords=("Q4OS" "MX" "Void" "Bodhi" "Solus" "antiX" "NixOS" "Alpine")
+#            1      2      3     4      5       6       7       8        9
+passwords=("DEMO" "Q4OS" "MX" "Void" "Bodhi" "antiX" "Solus" "NixOS" "Alpine")
 
 # Password check
 read -p "Please enter the password for next level (or type 'stop' to exit the game): " password
@@ -26,7 +26,7 @@ decode_file
 curr_level=$(sed -n '2p' /etc/app/.txt)
 curr_level=$(( curr_level + 1 ))
 
-if [[ $curr_level -gt 0 && $curr_level -le ${#passwords[@]} && $password == "${passwords[$((curr_level - 1))]}" ]]; then
+if [[ $curr_level -ge 0 && $curr_level -le ${#passwords[@]} && $password == "${passwords[$((curr_level))]}" ]]; then
     sed -i "2s/.*/$curr_level/" /etc/app/.txt
     encode_file
     echo "Password is correct. Level updated to $(( curr_level + 1 ))."

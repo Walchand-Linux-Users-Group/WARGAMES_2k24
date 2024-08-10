@@ -47,7 +47,7 @@ get_User(){
     touch "$SCRIPT_DIR/bind_it/.txt"
     declare -A d
     d[USERNAME]=$username
-    d[CURR_LEVEL]=0
+    d[CURR_LEVEL]=-1
     echo "${d[USERNAME]}" >> "$SCRIPT_DIR/bind_it/.txt"
     echo "${d[CURR_LEVEL]}" >> "$SCRIPT_DIR/bind_it/.txt"
 
@@ -58,27 +58,14 @@ get_User(){
 # Get game images
 pull_Levels(){
     echo "Patience is the key! Pulling Levels..."
-    # sudo apt install shc &> /dev/null
-    # docker pull wildwarrior44/warr1 &> /dev/null
-    # docker pull wildwarrior44/warr2 &> /dev/null
-    docker pull pranavg1203/wargames_levels:start &> /dev/null
-    docker tag pranavg1203/wargames_levels:start wildwarrior44/war1 &> /dev/null
+    docker pull wildwarrior44/wargame_finals:warg0 &> /dev/null
+    echo "Demo Pulled"
+    docker pull wildwarrior44/wargame_finals:warg1 &> /dev/null
     echo "Level 1 Pulled"
-    # docker pull pranavg1203/wargames_levels:cowsaymooo &> /dev/null
-    # docker tag pranavg1203/wargames_levels:cowsaymooo wildwarrior44/war2 &> /dev/null
-    # docker pull pranavg1203/wargames_levels:Binary_file &> /dev/null
-    # docker tag pranavg1203/wargames_levels:Binary_file wildwarrior44/war2 &> /dev/null
-    # docker pull pranavg1203/wargames_levels:tar &> /dev/null
-    # docker tag pranavg1203/wargames_levels:tar wildwarrior44/war2 &> /dev/null
-    docker pull pranavg1203/wargames_levels:Networking &> /dev/null
-    docker tag pranavg1203/wargames_levels:Networking wildwarrior44/war2 &> /dev/null
+    docker pull wildwarrior44/wargame_finals:warg2 &> /dev/null
     echo "Level 2 Pulled"
-    docker pull pranavg1203/wargames_levels:rickroll &> /dev/null
-    docker tag pranavg1203/wargames_levels:rickroll wildwarrior44/war3 &> /dev/null
-    echo "Level 3 Pulled"
-    # docker pull pranavg1203/wargames_levels:curl_level &> /dev/null
-    # docker tag pranavg1203/wargames_levels:curl_level wildwarrior44/war4 &> /dev/null
-    echo "Pull Complete"
+    docker pull wildwarrior44/wargame_finals:warg3 &> /dev/null
+    echo "Level 3 Complete"
 }
 
 if [ -f "$SCRIPT_DIR/bind_it/.txt.b64" ]; then
