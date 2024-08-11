@@ -61,25 +61,53 @@ get_User(){
 # Get game images
 pull_Levels(){
     echo "Patience is the key! Pulling Levels..."
+    echo "Till then open your cheatsheets, relax and have a sip of commands."
+    echo "
+    ----------------------------
+    Basic Linux Commands Cheatsheet
+    ----------------------------
+    - ls              : List directory contents
+    - cd [dir]        : Change directory
+    - pwd             : Print working directory
+    - mkdir [dir]     : Create a new directory
+    - rmdir [dir]     : Remove an empty directory
+    - rm [file]       : Remove a file
+    - cp [src] [dst]  : Copy files or directories
+    - mv [src] [dst]  : Move or rename files or directories
+    - touch [file]    : Create a new file or update the timestamp
+    - cat [file]      : Concatenate and display file content
+    - grep [pattern] [file] : Search for a pattern in a file
+    - find [dir] -name [pattern] : Find files by name
+    - chmod [mode] [file] : Change file permissions
+    - chown [user]:[group] [file] : Change file owner and group
+    - ps              : Display currently running processes
+    - top             : Display system tasks and resource usage
+    - kill [pid]      : Terminate a process by PID
+    - df              : Display disk space usage
+    - du [dir]        : Estimate file space usage
+    - free            : Display memory usage
+    - man [command]   : Display the manual for a command
+    - sudo [command]  : Execute a command with superuser privileges
+    - curl [url]      : Transfer data from or to a server
+    - unzip [file.zip]: Extract files from a zip archive
+    - zip [file.zip] [files] : Create a zip archive
+    - tar -cvf [archive.tar] [files] : Create a tar archive
+    - tar -xvf [archive.tar] : Extract files from a tar archive
+    ----------------------------
+    "
+    
     docker pull wildwarrior44/wargame_finals:warg0 &> /dev/null
-    echo "Demo Pulled"
     docker pull wildwarrior44/wargame_finals:warg1 &> /dev/null
-    echo "Level 1 Pulled"
-    docker pull wildwarrior44/wargame_finals:warg2 &> /dev/null # level
-    echo "Level 2 Pulled"
+    docker pull wildwarrior44/wargame_finals:warg2 &> /dev/null
     docker pull wildwarrior44/wargame_finals:warg3 &> /dev/null
-    echo "Level 3 Pulled"
     docker pull wildwarrior44/wargame_finals:warg4 &> /dev/null
-    echo "Level 4 Pulled"
     docker pull wildwarrior44/wargame_finals:warg5 &> /dev/null
-    echo "Level 5 Pulled"
     docker pull wildwarrior44/wargame_finals:warg6 &> /dev/null
-    echo "Level 6 Pulled"
     docker pull wildwarrior44/wargame_finals:warg7 &> /dev/null
-    echo "Level 7 Pulled"
     docker pull wildwarrior44/wargame_finals:warg8 &> /dev/null
-    echo "Level 8 Pulled"
+    docker pull wildwarrior44/wargame_finals:warg9 &> /dev/null
 }
+
 
 if [ -f "$SCRIPT_DIR/bind_it/.txt.b64" ]; then
     # get_Docker
