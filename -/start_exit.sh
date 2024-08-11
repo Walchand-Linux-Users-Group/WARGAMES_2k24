@@ -67,9 +67,9 @@ start_Level() {
     fi
 
     EXIT_CODE=$?
-    # if [[ $EXIT_CODE -eq 26 ]]; then
-    #     update_level
-    # fi
+    if [[ $EXIT_CODE -eq 26 ]]; then
+        update_level
+    fi
 }
 
 if [ "$#" -ne 2 ]; then
