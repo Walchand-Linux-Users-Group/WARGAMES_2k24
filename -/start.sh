@@ -96,16 +96,16 @@ pull_Levels(){
     ----------------------------
     "
     
-    docker pull wildwarrior44/wargame_finals:warg0 &> /dev/null
-    docker pull wildwarrior44/wargame_finals:warg1 &> /dev/null
-    docker pull wildwarrior44/wargame_finals:warg2 &> /dev/null
-    docker pull wildwarrior44/wargame_finals:warg3 &> /dev/null
-    docker pull wildwarrior44/wargame_finals:warg4 &> /dev/null
-    docker pull wildwarrior44/wargame_finals:warg5 &> /dev/null
-    docker pull wildwarrior44/wargame_finals:warg6 &> /dev/null
-    docker pull wildwarrior44/wargame_finals:warg7 &> /dev/null
-    docker pull wildwarrior44/wargame_finals:warg8 &> /dev/null
-    docker pull wildwarrior44/wargame_finals:warg9 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg0 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg1 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg2 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg3 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg4 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg5 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg6 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg7 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg8 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg9 &> /dev/null
 }
 
 
