@@ -60,7 +60,7 @@ start_Level() {
         fi
     else
         if [ $(( curr_l + 1 )) -ne 9 ]; then
-            docker run --hostname "$user" --user root -v /var/run/docker.sock:/var/run/docker.sock --mount type=bind,source="$SCRIPT_DIR/bind_it",target=/etc/app -it --name "$container_name" ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg$(( curr_l + 1 )) /bin/bash -c "cd /home/wlug && /bin/bash"
+            docker run --hostname "$user" --user root -v /var/run/docker.sock:/var/run/docker.sock --mount type=bind,source="$SCRIPT_DIR/bind_it",target=/etc/app -it --name "$container_name" ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg$(( curr_l + 1 )) /bin/bash -c "cd /home/wlug && /bin/bash" 
         else
             docker run --hostname "$user" --user user1 -v /var/run/docker.sock:/var/run/docker.sock --mount type=bind,source="$SCRIPT_DIR/bind_it",target=/etc/app -it --name "$container_name" ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg$(( curr_l + 1 )) /bin/sh -c "cd ~ && /bin/sh"
         fi

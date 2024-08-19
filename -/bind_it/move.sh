@@ -9,8 +9,8 @@ encode_file(){
     rm /etc/app/.txt
 }
 
-#            1      2      3     4      5       6       7       8        9
-passwords=("DEMO" "Q4OS" "MX" "Void" "Bodhi" "antiX" "Solus" "NixOS" "Alpine")
+#            1      2      3     4      5       6       7       8        9         10
+passwords=("DEMO" "Q4OS" "MX" "Void" "Bodhi" "antiX" "Solus" "NixOS" "Alpine" "Endeavour")
 
 # Password check
 read -p "Please enter the password for next level (or type 'stop' to exit the game): " password

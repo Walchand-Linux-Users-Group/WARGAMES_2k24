@@ -106,6 +106,7 @@ pull_Levels(){
     docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg7 &> /dev/null
     docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg8 &> /dev/null
     docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg9 &> /dev/null
+    docker pull ghcr.io/walchand-linux-users-group/wildwarrior44/wargame_finals:warg10 &> /dev/null
 }
 
 
