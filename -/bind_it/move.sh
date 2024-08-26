@@ -28,7 +28,7 @@ encode_file
 #     echo "You've reached the realm of happiness. You're the ultimate G.O.A.T"
 #     echo "Thanks! for playing"
 #     echo "Made with love by WLUG"
-#     echo "The password end the game is stop."
+#     echo "The password to end the game is stop."
 #     echo "You may now exit by either pressing Ctrl + D or typing 'exit' (without quotes)."
 # fi
 
