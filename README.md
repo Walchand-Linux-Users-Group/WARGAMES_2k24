@@ -1,5 +1,7 @@
 ### Welcome to WARGAMES!
 
+For detailed documentation, visit [https://wargames.readthedocs.io/](https://wargames.readthedocs.io/).
+
 #### To start playing follow the below steps:
 
 ```python

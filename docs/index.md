@@ -29,8 +29,7 @@ WARGAMES is a progressive CTF platform designed to test and improve your **Linux
 2. **Start the Platform**
 
     ```bash
-    chmod +x start.sh
-    ./start.sh
+    sudo bash start.sh
     ```
 
 3. **Begin with Level 1**
